@@ -1,17 +1,21 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h2>{{ $t("hello") }}</h2>
+
+    <div class="locale-changer">
+      <select v-model="$i18n.locale">
+        <option v-for="(lang, i) in langs" :key="`Lang${i}`" :value="lang">{{ lang }}</option>
+      </select>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  data () {
+    return { langs: ['es', 'en'] }
   }
 }
 </script>
